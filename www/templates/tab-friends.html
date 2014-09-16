@@ -1,0 +1,40 @@
+<ion-view title="Flipstar">
+  <ion-content class="has-header">
+    <section ng-controller="cardController">
+      <p>Swipe <b>right</b> if you like it or <b>left</b> if you don't</p>
+      <div ng-repeat="card in cards"><!--  on-destroy="cardDestroyed($index)" on-swipe="cardSwiped($index)"-->
+        <div class="card" ng-show="showCard($index)">
+          <div> 
+            <div id="thumbnails">
+              <!--Insert product image here-->
+              <img src="{{card.imageUrl}}"/>
+            </div>
+            <div id= "description">
+              <!--price, and name, make sure image and text sit well together -->
+              <ul>
+              <!--<li>Brand <span id= "brandname"></span></li>-->
+              <li>Item <span id= "name">{{card.name}}</span></li>
+              <li>Price <span id= "price">{{card.price}}</span></li>
+              </ul>
+            </div>
+          </div> 
+          <div class="item tabs tabs-secondary tabs-icon-left">
+            <a class="tab-item" ng-click="incrimentN()">
+              <i class="icon ion-close"></i>
+              No, thanks
+            </a>
+            <a class="tab-item" ng-click="">
+              <i class="icon ion-information-circled"></i>
+              Information
+            </a>
+            <a class="tab-item" ng-click="incrimentY()">
+              <i class="icon ion-ios7-star"></i>
+              Like it!
+            </a>
+        </div>
+        </div>
+      </div>
+      <p ng-show="done()">It looks like you've flipped through all available items. check back soon!</p>
+    </section>
+  </ion-content>
+</ion-view>
